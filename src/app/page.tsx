@@ -1,112 +1,177 @@
+'use client'
+import { useRef, useEffect } from "react";
 import Image from "next/image";
+import Navbar from "@/components/Navbar/Navbar";
+import arrow from "../../public/icons/download.svg";
+import hero from "../../public/images/hero.jpg";
+import hero2 from "../../public/images/hero2.jpg";
+
+import togetheredicon from "../../public/icons/download (1).svg";
+import threadsicon from "../../public/icons/download (2).svg";
+import tourismicon from "../../public/icons/download (3).svg";
+import Footbar from "@/components/Footbar/Footer";
 
 export default function Home() {
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([null, null, null, null]); // Initialize with null values
+
+  useEffect(() => {
+    // Handle background scroll effect
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        imageRef.current.style.backgroundPositionX = `${scrollTop * 0.3}px`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleRef = (index: number): React.RefCallback<HTMLDivElement> => (el) => {
+    if (el) {
+      sectionRefs.current[index] = el;
+    }
+  };
+
+  useEffect(() => {
+    // Add initial load animation to hero section
+    if (heroRef.current) {
+      heroRef.current.classList.add("reveal");
+    }
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      sectionRefs.current.forEach((section) => {
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+    };
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main>
+      <div className="relative">
+        <div className="z-20 relative">
+          <Navbar />
+        </div>
+        <div
+          ref={imageRef}
+          className="select-none absolute inset-0 bg-gradient from-gray-500 to-black opacity-25 image-transition w-full h-full"
+          style={{
+            backgroundImage: `url(${hero.src})`,
+            backgroundSize: '130%',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right bottom',
+            zIndex: 0,
+          }}
+        ></div>
+        <div ref={heroRef} className="z-10 relative max-w-7xl px-[15vh] mt-[10vh]">
+          <div className="text-6xl">
+            &quot;Empowering Minds, Transforming Style, and Enriching Journeys: Together, we create a brighter future.&quot;
+          </div>
+          <div className="text-3xl pt-10">
+            The destination for leaders who seek to change the world
+          </div>
+          <div className="button my-10 py-3 px-7 bg-white text-black w-min">
+            Connect
+          </div>
+        </div>
+        <div className="z-10 relative grid grid-cols-2">
+          <div className="border-r border-gray-300 pr-[10vh]">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
+              src={arrow}
+              className="text-red-600"
+              alt=""
               width={100}
-              height={24}
-              priority
+              height={100}
             />
-          </a>
+          </div>
+          <div className="pl-[10vh] py-[15vh]">
+            <div>Subscribe to our Mailing list</div>
+            <div className="py-1">Enter your email here</div>
+            <div className="flex">
+              <input type="text" className="border bg-transparent px-5 py-3" placeholder="Email Address" />
+              <button className="py-3 px-7 bg-white text-black border border-gray-300">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white grid grid-cols-2 text-black">
+        <div ref={handleRef(0)} className="border-r border-b p-32">
+          <div className="text-6xl">Company Overview</div>
+          <div className="text-xl">We are a global conglomerate headquartered in Washington, DC, with a dynamic presence across diverse business verticals.</div>
+        </div>
+        <div ref={handleRef(1)} className="border-r border-b p-32">
+          <Image
+            className="pr-6 pb-6"
+            src={tourismicon}
+            alt=""
+            width={100}
+            height={100}
+          />
+          <div className="text-3xl">Together Tourism</div>
+          <div className="text-xl">We pioneer educational journeys, blending learning with exploration, fostering curiosity, and opening new horizons.</div>
+        </div>
+        <div ref={handleRef(2)} className="border-r border-b p-32">
+          <Image
+            className="pr-6 pb-6"
+            src={threadsicon}
+            alt=""
+            width={100}
+            height={100}
+          />
+          <div className="text-3xl">Together Threads</div>
+          <div className="text-xl">Leading the fashion industry, we import, export, and redefine global fashion trends, prioritizing sustainability and innovation</div>
+        </div>
+        <div ref={handleRef(3)} className="p-32">
+          <Image
+            className="pr-6 pb-6"
+            src={togetheredicon}
+            alt=""
+            width={100}
+            height={100}
+          />
+          <div className="text-3xl">TogetherEd</div>
+          <div className="text-xl">Bridging academia and industry, we provide innovative solutions by harnessing academic expertise and solving complex industrial challenges through technology.</div>
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
+      <div>
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className="select-none bg-gradient from-gray-500 to-black opacity-25 image-transition h-full"
+          src={hero2}
+          alt=""
+          width={10000}
+          height={10000}
         />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div>
+        <Footbar/>
       </div>
     </main>
   );
