@@ -12,7 +12,7 @@ export default function Contact() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollTop = window.screenY || document.documentElement.scrollTop;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             if (imageRef.current) {
                 imageRef.current.style.backgroundPositionX = `${-scrollTop * 0.3}px`;
             }
