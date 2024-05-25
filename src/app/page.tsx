@@ -89,18 +89,18 @@ export default function Home() {
             zIndex: 0,
           }}
         ></div>
-        <div ref={heroRef} className="z-10 relative max-w-7xl px-[15vh] mt-[10vh]">
-          <div className="text-6xl">
+        <div ref={heroRef} className="z-10 relative max-w-7xl px-[20px] md:px-[15vh] mt-[10vh]">
+          <div className="text-4xl md:text-6xl">
             &quot;Empowering Minds, Transforming Style, and Enriching Journeys: Together, we create a brighter future.&quot;
           </div>
-          <div className="text-3xl pt-10">
+          <div className="text-2xl md:text-3xl pt-10">
             The destination for leaders who seek to change the world
           </div>
           <div className="button my-10 py-3 px-7 bg-white text-black w-min">
             Connect
           </div>
         </div>
-        <div className="z-10 relative grid grid-cols-2">
+        <div className="z-10 relative grid grid-cols-1 md:grid-cols-2">
           <div className="border-r border-gray-300 pr-[10vh]">
             <Image
               src={arrow}
@@ -110,7 +110,7 @@ export default function Home() {
               height={100}
             />
           </div>
-          <div className="pl-[10vh] py-[15vh]">
+          <div className="pl-[10%] md:pl-[10vh] py-[15vh]">
             <div>Subscribe to our Mailing list</div>
             <div className="py-1">Enter your email here</div>
             <div className="flex">
@@ -120,7 +120,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-white grid grid-cols-2 text-black">
+      <div className="bg-white grid grid-cols-1 md:grid-cols-2 text-black">
         <div ref={handleRef(0)} className="border-r border-b p-32">
           <div className="text-6xl">Company Overview</div>
           <div className="text-xl">We are a global conglomerate headquartered in Washington, DC, with a dynamic presence across diverse business verticals.</div>

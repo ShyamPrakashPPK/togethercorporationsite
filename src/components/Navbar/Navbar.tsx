@@ -1,31 +1,82 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from '../../../public/logo.svg'
 import Link from 'next/link'
 
-
-
 export default function Navbar() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
     return (
-        <div className='p-5 bg-transparent  px-[15vh] flex justify-between '>
-            <div className="flex flex-row items-center">
-                <div>
-                    <Image src={logo} alt='' width={100} height={100} />
+        <div>
+            <div className='p-5 bg-transparent md:px-[15vh] flex justify-between items-center text-white'>
+                <Link href='/'>
+                    <div className="flex flex-row items-center ">
+                        <div>
+                            <Image src={logo} alt='Logo' width={100} height={100} />
+                        </div>
+                        <div className='flex flex-col text-white'>
+                            <div className='text-2xl '>Together</div>
+                            <div className='text-2xl '>Corporation</div>
+                            <div className='font-light text-sm '>Tour, Trend, Transform</div>
+                        </div>
+                    </div>
+                </Link>
+                <div className='flex flex-col gap-5 items-end'>
+                    <div className='bg-white text-md p-2 px-8 text-black font-light'>Connect</div>
+                    <div className='flex flex-row gap-[30vh] relative'>
+                        <Link className='hover:text-violet-200 text-white' href='/about'>About</Link>
+                        <div
+                            className='relative'
+                            onMouseEnter={() => setIsDropdownOpen(true)}
+                            onMouseLeave={() => setIsDropdownOpen(false)}
+                        >
+                            <div className='hover:text-violet-200 text-white'>Business</div>
+                            {isDropdownOpen && (
+                                <div
+                                    className='absolute text-right top-full -right-7 bg-black text-white shadow-lg flex flex-col pl-12 pt-3 pr-4'
+                                    onMouseEnter={() => setIsDropdownOpen(true)}
+                                    onMouseLeave={() => setIsDropdownOpen(false)}
+                                >
+                                    <Link href='/business/tourism' className='p-2 hover:text-violet-200 '>Tourism</Link>
+                                    <Link href='/business/education' className='p-2 hover:text-violet-200 '>Education</Link>
+                                    <Link href='/business/threads' className='p-2 hover:text-violet-200 '>Threads</Link>
+                                </div>
+                            )}
+                        </div>
+                        <Link className='hover:text-violet-200 text-white' href='/contact-us'>Contact</Link>
+                    </div>
                 </div>
-                <div className='flex flex-col'>
-                    <div className='text-2xl'>Together</div>
-                    <div className='text-2xl'>Corporation</div>
-                    <div className='font-light text-sm'>Tour, Trend, Transform</div>
+                <div className='md:hidden flex items-center'>
+                    <button onClick={() => setIsSidebarOpen(true)}>
+                        <FaBars size={30} />
+                    </button>
                 </div>
             </div>
-            <div className='flex flex-col gap-5 items-end'>
-                <div className='bg-white text-md p-2 px-8 text-black font-light'>Connect</div>
-                <div className='flex flex-row gap-60'>
-                    <Link href={'/fff'}>About</Link>
-                    <Link href={'/fff'}>Business</Link>
-                    <Link href={'/contact-us'}>Contact</Link>
+
+            {/* {isSidebarOpen && (
+                <div className='fixed top-0 left-0 w-[75%] h-full bg-black text-white shadow-lg flex flex-col p-5'>
+                    <button onClick={() => setIsSidebarOpen(false)} className='self-end'>
+                        <FaTimes size={30} />
+                    </button>
+                    <Link href='/' className='my-2' onClick={() => setIsSidebarOpen(false)}>Home</Link>
+                    <Link href='/about' className='my-2' onClick={() => setIsSidebarOpen(false)}>About</Link>
+                    <div className='relative my-2'>
+                        <div onClick={() => setIsDropdownOpen(!isDropdownOpen)}>Business</div>
+                        {isDropdownOpen && (
+                            <div className='flex flex-col bg-gray-800'>
+                                <Link href='/business/tourism' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Tourism</Link>
+                                <Link href='/business/education' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Education</Link>
+                                <Link href='/business/threads' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Threads</Link>
+                            </div>
+                        )}
+                    </div>
+                    <Link href='/contact-us' className='my-2' onClick={() => setIsSidebarOpen(false)}>Contact</Link>
+                    <div className='bg-white text-md p-2 px-8 text-black font-light mt-4' onClick={() => setIsSidebarOpen(false)}>Connect</div>
                 </div>
-            </div>
+            )} */}
         </div>
     )
 }
