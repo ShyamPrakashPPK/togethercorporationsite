@@ -121,11 +121,11 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-white grid grid-cols-1 md:grid-cols-2 text-black">
-        <div ref={handleRef(0)} className="border-r border-b p-32">
+        <div ref={handleRef(0)} className="border-r border-b p-10 md:p-32">
           <div className="text-6xl">Company Overview</div>
           <div className="text-xl">We are a global conglomerate headquartered in Washington, DC, with a dynamic presence across diverse business verticals.</div>
         </div>
-        <div ref={handleRef(1)} className="border-r border-b p-32">
+        <div ref={handleRef(1)} className="border-r border-b p-10 md:p-32">
           <Image
             className="pr-6 pb-6"
             src={tourismicon}
@@ -136,7 +136,7 @@ export default function Home() {
           <div className="text-3xl">Together Tourism</div>
           <div className="text-xl">We pioneer educational journeys, blending learning with exploration, fostering curiosity, and opening new horizons.</div>
         </div>
-        <div ref={handleRef(2)} className="border-r border-b p-32">
+        <div ref={handleRef(2)} className="border-r border-b p-10 md:p-32">
           <Image
             className="pr-6 pb-6"
             src={threadsicon}
@@ -147,7 +147,7 @@ export default function Home() {
           <div className="text-3xl">Together Threads</div>
           <div className="text-xl">Leading the fashion industry, we import, export, and redefine global fashion trends, prioritizing sustainability and innovation</div>
         </div>
-        <div ref={handleRef(3)} className="p-32">
+        <div ref={handleRef(3)} className="p-10 md:p-32">
           <Image
             className="pr-6 pb-6"
             src={togetheredicon}
