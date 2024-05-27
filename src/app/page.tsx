@@ -89,7 +89,7 @@ export default function Home() {
             zIndex: 0,
           }}
         ></div>
-        <div ref={heroRef} className="z-10 relative max-w-7xl px-[20px] md:px-[15vh] mt-[10vh]">
+        <div ref={heroRef} className="z-10 relative max-w-7xl px-[20px] lg:px-[15vh] mt-[10vh]">
           <div className="text-4xl md:text-6xl">
             &quot;Empowering Minds, Transforming Style, and Enriching Journeys: Together, we create a brighter future.&quot;
           </div>
@@ -100,8 +100,8 @@ export default function Home() {
             Connect
           </div>
         </div>
-        <div className="z-10 relative grid grid-cols-1 md:grid-cols-2">
-          <div className="border-r border-gray-300 pr-[10vh]">
+        <div className="z-10 relative grid grid-cols-1  lg:grid-cols-2">
+          <div className="border-r border-gray-300 pr-[10vh] ">
             <Image
               src={arrow}
               className="text-red-600"
@@ -120,7 +120,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-white grid grid-cols-1 md:grid-cols-2 text-black">
+      <div className="bg-white grid grid-cols-1 lg:grid-cols-2 text-black">
         <div ref={handleRef(0)} className="border-r border-b p-10 md:p-32">
           <div className="text-6xl">Company Overview</div>
           <div className="text-xl">We are a global conglomerate headquartered in Washington, DC, with a dynamic presence across diverse business verticals.</div>

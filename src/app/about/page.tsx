@@ -56,29 +56,29 @@ export default function page() {
                       Threads and ethics are the coolest keys!</div>
               </div>
           </div>
-          <div className='grid grid-cols-2 p-10 px-[20vh]'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 p-10 md:px-20'>
               <div className='flex flex-col'>
-                  <div className='p-10 text-6xl'>Our Misson Is to Empover</div>
+                  <div className='p-3 md:p-10 text-3xl md:text-6xl'>Our Misson Is to Empover</div>
                   <div className='grid grid-cols-2 gap-5 '>
-                      <div className='flex flex-col p-10'>
-                          <div className='text-6xl'>10+</div>
-                          <div className='text-2xl'>Years in Business</div>
+                      <div className='flex flex-col md:p-10'>
+                          <div className='text-3xl md:text-6xl'>10+</div>
+                          <div className='text-md md:text-2xl'>Years in Business</div>
                       </div>
-                      <div className='flex flex-col p-10'>
-                          <div className='text-6xl'>100+</div>
-                          <div className='text-2xl'>Industry Leading Mentors</div>
+                      <div className='flex flex-col md:p-10'>
+                          <div className='text-3xl md:text-6xl'>100+</div>
+                          <div className='text-md md:text-2xl'>Industry Leading Mentors</div>
                       </div>
-                      <div className='flex flex-col p-10'>
-                          <div className='text-6xl'>1000+</div>
-                          <div className='text-2xl'>Global Connects</div>
+                      <div className='flex flex-col md:p-10'>
+                          <div className='text-3xl md:text-6xl'>1000+</div>
+                          <div className='text-md md:text-2xl'>Global Connects</div>
                       </div>
-                      <div className='flex flex-col p-10'>
-                          <div className='text-6xl'>100000+</div>
-                          <div className='text-2xl'>Satisfaction Rated by Students</div>
+                      <div className='flex flex-col md:p-10'>
+                          <div className='text-3xl md:text-6xl'>100000+</div>
+                          <div className='text-md md:text-2xl'>Satisfaction Rated by Students</div>
                       </div>
                   </div>
               </div>
-              <div className='flex flex-col justify-start font-light text-lg p-10  '>
+              <div className='flex flex-col justify-start font-light text-lg py-10 md:p-[5%]  '>
                   <div className='py-3'>
                       At Together Corporation, our mission is simple: to empower growth and innovation through unity. We&apos;re committed to fostering an environment where diverse ideas converge, creating a brighter future for all.&quot;
                   </div>

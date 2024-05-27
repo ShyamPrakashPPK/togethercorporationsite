@@ -30,7 +30,7 @@ export default function Contact() {
             <div>
                 <Navbar />
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 pb-10'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 pb-10'>
                 <div className='contact '>
                     <div className='flex flex-col p-10 md:p-[10vh]  bg-[#191919]'>
                         <div className='text-3xl md:text-6xl '>Contact Us</div>
