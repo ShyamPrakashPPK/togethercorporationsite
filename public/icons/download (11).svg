@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="xMidYMid meet" data-bbox="20.63 20.63 158.74 158.74" viewBox="20.63 20.63 158.74 158.74" height="200" width="200" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true" aria-label=""><defs><style>#comp-krp1qgt7 svg [data-color="1"] {fill: #FFFFFF;}
+#comp-krp1qgt7 svg [data-color="2"] {fill: #000000;}</style></defs>
+    <g>
+        <path fill="#7E55F6" d="M86.108 86v28h-27V86h27z" data-color="1"></path>
+        <path fill="#7E55F6" d="M141.108 56v28h-28V56h28z" data-color="1"></path>
+        <path fill="#7E55F6" d="M141.108 116v28h-28v-28h28z" data-color="1"></path>
+        <path d="M20.63 20.63v158.74h158.74V20.63H20.63zm156.26 156.26H23.11V23.11h153.78v153.78zm-89.292-75.396 24.803 29.595v13.557h29.764v-29.764h-29.764v12.347l-22.947-27.38 22.947-27.768v13.036h29.764V55.354h-29.764v12.833L87.598 98.201V85.118H57.835v29.764h29.764v-13.388zm27.284 15.868h24.803v24.803h-24.803v-24.803zm0-59.527h24.803v24.803h-24.803V57.835zm-27.04 42.019-.243.204v-.405l.243.201zm-2.724 12.548H60.315V87.598h24.803v24.804z" fill="#1D1D1B" data-color="2"></path>
+    </g>
+</svg>
