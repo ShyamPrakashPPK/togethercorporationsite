@@ -10,6 +10,7 @@ import togetheredicon from "../../public/icons/download (1).svg";
 import threadsicon from "../../public/icons/download (2).svg";
 import tourismicon from "../../public/icons/download (3).svg";
 import Footbar from "@/components/Footbar/Footer";
+import Link from "next/link";
 
 export default function Home() {
   const imageRef = useRef<HTMLDivElement | null>(null);
@@ -80,7 +81,7 @@ export default function Home() {
         </div>
         <div
           ref={imageRef}
-          className="select-none absolute inset-0 bg-gradient from-gray-500 to-black opacity-25 image-transition w-full h-full"
+          className="select-none max-lg:hidden flex-grow flex absolute inset-0 bg-gradient from-gray-500 to-black opacity-25 image-transition w-full h-full"
           style={{
             backgroundImage: `url(${hero.src})`,
             backgroundSize: '130%',
@@ -89,22 +90,28 @@ export default function Home() {
             zIndex: 0,
           }}
         ></div>
-        <div ref={heroRef} className="z-10 relative max-w-7xl px-[20px] lg:px-[15vh] mt-[10vh]">
+        <div ref={heroRef} className="z-10  relative max-w-7xl px-[20px] lg:px-[15vh] mt-[10vh]">
           <div className="text-4xl md:text-6xl">
             &quot;Empowering Minds, Transforming Style, and Enriching Journeys: Together, we create a brighter future.&quot;
           </div>
           <div className="text-2xl md:text-3xl pt-10">
             The destination for leaders who seek to change the world
           </div>
-          <div className="button my-10 py-3 px-7 bg-white text-black w-min">
-            Connect
+
+          
+          <div className="my-10 py-3 px-7 bg-white text-black max-w-36">
+              <Link href="https://calendly.com/togetheredtech" legacyBehavior>
+                <a target="_blank">
+                  <div >Get started</div>
+                </a>
+              </Link>
           </div>
         </div>
         <div className="z-10 relative grid grid-cols-1  lg:grid-cols-2">
-          <div className="border-r border-gray-300 pr-[10vh] ">
+          <div className="border-r  border-gray-300 px-[10vh] max-lg:hidden flex-grow flex">
             <Image
               src={arrow}
-              className="text-red-600"
+              className=""
               alt=""
               width={100}
               height={100}
@@ -168,13 +175,13 @@ export default function Home() {
             backgroundAttachment: 'fixed',
           }}
         ></div>
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 justify-items-center content-center place-items-center h-full text-white md:p-10 md:py-40 lg:py-[20%] lg:p-[10vh]">
-          <div className="flex flex-col ">
-            <h2 className="text-2xl md:text-4xl lg:text-6xl font-semibold pb-6">Our Story</h2>
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2  h-full text-white dark:text-white p-10 md:py-40 lg:py-[10%] lg:p-[10vh]">
+          <div className="flex flex-col lg:mt-5">
+            <h2 className="text-2xl md:text-6xl font-semibold pb-6">Our Story</h2>
             <h4 className="text-2xl">We aim to empower the young to change the world</h4>
           </div>
           <div className="md:text-lg lg:text-xl">
-            Connect
+            <div className="h-px my-5 bg-gray-600 border-0 dark:bg-gray-700"></div>
             From India&apos;s vibrant embrace, Together Corporation emerged, weaving a narrative of learning, resilience, and growth.
             Our voyage began in 2009 with Together Tourism, blending education with exploration, sparking curiosity worldwide. Amidst success, the COVID-19 storm struck, testing our mettle. But adversity became our catalyst for innovation, fortifying our spirit.
             Expanding our horizons, TogetherEd united academia and industry, empowering minds with technology during uncertain times. This resilience led us to Together Threads, where sustainable style flourished, adapting to a changing world.

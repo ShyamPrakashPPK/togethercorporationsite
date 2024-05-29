@@ -93,27 +93,27 @@ export default function page() {
                 ></div>
                 <div className='relative grid grid-cols-1 lg:grid-cols-2 p-10 md:px-20'>
                     <div className='flex flex-col'>
-                        <div className='p-3 md:p-10 text-3xl md:text-6xl'>Our Misson Is to Empover</div>
+                        <div className='p-3 md:p-10 text-3xl md:text-5xl lg:text-6xl'>Our Misson Is to Empower</div>
                         <div className='grid grid-cols-2 gap-5 '>
                             <div className='flex flex-col md:p-10'>
-                                <div className='text-3xl md:text-6xl'>10+</div>
-                                <div className='text-md md:text-2xl'>Years in Business</div>
+                                <div className='text-3xl md:text-5xl lg:text-6xl'>10+</div>
+                                <div className='text-md md:text-lg lg:text-2xl'>Years in Business</div>
                             </div>
                             <div className='flex flex-col md:p-10'>
-                                <div className='text-3xl md:text-6xl'>100+</div>
-                                <div className='text-md md:text-2xl'>Industry Leading Mentors</div>
+                                <div className='text-3xl md:text-5xl lg:text-6xl'>100+</div>
+                                <div className='text-md md:text-lg lg:text-2xl'>Industry Leading Mentors</div>
                             </div>
                             <div className='flex flex-col md:p-10'>
-                                <div className='text-3xl md:text-6xl'>1000+</div>
-                                <div className='text-md md:text-2xl'>Global Connects</div>
+                                <div className='text-3xl md:text-5xl lg:text-6xl'>1000+</div>
+                                <div className='text-md md:text-lg lg:text-2xl'>Global Connects</div>
                             </div>
                             <div className='flex flex-col md:p-10'>
-                                <div className='text-3xl md:text-6xl'>100000+</div>
-                                <div className='text-md md:text-2xl'>Satisfaction Rated by Students</div>
+                                <div className='text-3xl md:text-5xl lg:text-6xl'>100000+</div>
+                                <div className='text-md md:text-lg lg:text-2xl'>Satisfaction Rated by Students</div>
                             </div>
                         </div>
                     </div>
-                    <div className='flex flex-col justify-start font-light text-lg py-10 md:p-[5%]  '>
+                    <div className='flex flex-col justify-start font-light lg:text-lg py-10 md:p-[5%]  '>
                         <div className='py-3'>
                             At Together Corporation, our mission is simple: to empower growth and innovation through unity. We&apos;re committed to fostering an environment where diverse ideas converge, creating a brighter future for all.&quot;
                         </div>
@@ -157,8 +157,9 @@ export default function page() {
                             width={100}
                             height={100}
                         />
-                        <h3 className='text-2xl'>Innovation</h3>
-                        <h5 className='text-md lg:text-xl'>Sparking creativity, seeking new solutions, and embracing fresh perspectives.</h5>
+                        <h3 className='text-2xl'>
+                            Excellence</h3>
+                        <h5 className='text-md lg:text-xl'>Setting high standards, delivering quality in every endeavor undertaken.</h5>
                     </div>
                     <div className='p-5 py-10 border-2 flex flex-col'>
                         <Image
@@ -168,8 +169,8 @@ export default function page() {
                             width={100}
                             height={100}
                         />
-                        <h3 className='text-2xl'>Innovation</h3>
-                        <h5 className='text-md lg:text-xl'>Sparking creativity, seeking new solutions, and embracing fresh perspectives.</h5>
+                        <h3 className='text-2xl'>Collaboration</h3>
+                        <h5 className='text-md lg:text-xl'>Fostering teamwork, valuing diverse ideas, and working towards shared goals.</h5>
                     </div>
                     <div className='p-5 py-10 border-2 flex flex-col'>
                         <Image
@@ -179,8 +180,12 @@ export default function page() {
                             width={100}
                             height={100}
                         />
-                        <h3 className='text-2xl'>Innovation</h3>
-                        <h5 className='text-md lg:text-xl'>Sparking creativity, seeking new solutions, and embracing fresh perspectives.</h5>
+                        <h3 className='text-2xl'>
+                            Resilience
+                        </h3>
+                        <h5 className='text-md lg:text-xl'>
+                            
+                            Adapting and persisting, facing challenges with determination and  spirit</h5>
                     </div>
                     <div className='p-5 py-10 border-2 flex flex-col'>
                         <Image
@@ -190,8 +195,10 @@ export default function page() {
                             width={100}
                             height={100}
                         />
-                        <h3 className='text-2xl'>Innovation</h3>
-                        <h5 className='text-md lg:text-xl'>Sparking creativity, seeking new solutions, and embracing fresh perspectives.</h5>
+                        <h3 className='text-2xl'>
+
+                            Integrity</h3>
+                        <h5 className='text-md lg:text-xl'>Upholding honesty, transparency, and ethical conduct in all actions</h5>
                     </div>
                     
 

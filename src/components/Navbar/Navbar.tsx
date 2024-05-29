@@ -25,7 +25,9 @@ export default function Navbar() {
                     </div>
                 </Link>
                 <div className='basis-2/3 max-md:hidden flex-grow flex flex-col gap-5 items-end'>
-                    <div className='bg-white text-md p-2 px-8 text-black font-light'>Connect</div>
+                    <div className='bg-white text-md p-2 px-8 text-black font-light'>
+                        <Link href='/contact-us' className='my-2' onClick={() => setIsSidebarOpen(false)}>Connect</Link>
+                    </div>
                     <div className='flex flex-row gap-16 relative'>
                         <Link className='hover:text-violet-200 text-white' href='/about'>About</Link>
                         <div
@@ -67,40 +69,42 @@ export default function Navbar() {
                         <div onClick={() => setIsDropdownOpen(!isDropdownOpen)}>Business</div>
                         {isDropdownOpen && (
                             <div className='flex flex-col bg-gray-800'>
-                                <Link href='/business/tourism' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Tourism</Link>
-                                <Link href='/business/education' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Education</Link>
-                                <Link href='/business/threads' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Threads</Link>
+                                <Link href='/business/together-tourism' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Tourism</Link>
+                                <Link href='/business/togethered' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Education</Link>
+                                <Link href='/business/together-threads' className='p-2 hover:bg-gray-700' onClick={() => setIsSidebarOpen(false)}>Threads</Link>
                             </div>
                         )}
                     </div>
                     <Link href='/contact-us' className='my-2' onClick={() => setIsSidebarOpen(false)}>Contact</Link>
-                    <div className='bg-white text-md p-2 px-8 text-black font-light mt-4' onClick={() => setIsSidebarOpen(false)}>Connect</div>
+                    <div className='bg-white text-md p-2 px-8 text-black font-light mt-4' onClick={() => setIsSidebarOpen(false)}>
+                        <Link href='/contact-us' className='my-2' onClick={() => setIsSidebarOpen(false)}>Connect</Link>
+                    </div>
                 </div>
             )}
         </div>
 
 
 
-    //     <div className='p-5 bg-transparent flex'>
-    //     <div className='basis-1/3 flex-grow'>
-    //       <div className='p-10'>
-    //         <Image src={logo} alt='Logo' width={100} height={100} />
-    //       </div>
-    //     </div>
-    //     <div className='basis-2/3 max-md:hidden flex-grow flex flex-col justify-between p-10'>
-    //       <div className='flex justify-end'>Connect</div>
-    //       <div className='flex justify-between'>
-    //         <div>About</div>
-    //         <div>Business</div>
-    //         <div>Contact</div>
-    //       </div>
-    //     </div>
-    //     <div className='block md:hidden p-10'>
-    //       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-    //         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16m-7 6h7'></path>
-    //       </svg>
-    //     </div>
-    //   </div>
-    
+        //     <div className='p-5 bg-transparent flex'>
+        //     <div className='basis-1/3 flex-grow'>
+        //       <div className='p-10'>
+        //         <Image src={logo} alt='Logo' width={100} height={100} />
+        //       </div>
+        //     </div>
+        //     <div className='basis-2/3 max-md:hidden flex-grow flex flex-col justify-between p-10'>
+        //       <div className='flex justify-end'>Connect</div>
+        //       <div className='flex justify-between'>
+        //         <div>About</div>
+        //         <div>Business</div>
+        //         <div>Contact</div>
+        //       </div>
+        //     </div>
+        //     <div className='block md:hidden p-10'>
+        //       <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        //         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16m-7 6h7'></path>
+        //       </svg>
+        //     </div>
+        //   </div>
+
     )
 }
