@@ -160,18 +160,32 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <Image
-          className="select-none bg-gradient from-gray-500 to-black opacity-25 image-transition h-full"
-          src={hero2}
-          alt=""
-          width={10000}
-          height={10000}
-        />
+      <div className="relative h-[100vh] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-gradient from-gray-500 to-black opacity-25"
+          style={{
+            backgroundImage: `url(${hero2.src})`,
+            backgroundAttachment: 'fixed',
+          }}
+        ></div>
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 justify-items-center content-center place-items-center h-full text-white md:p-10 md:py-40 lg:py-[20%] lg:p-[10vh]">
+          <div className="flex flex-col ">
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-semibold pb-6">Our Story</h2>
+            <h4 className="text-2xl">We aim to empower the young to change the world</h4>
+          </div>
+          <div className="md:text-lg lg:text-xl">
+            Connect
+            From India&apos;s vibrant embrace, Together Corporation emerged, weaving a narrative of learning, resilience, and growth.
+            Our voyage began in 2009 with Together Tourism, blending education with exploration, sparking curiosity worldwide. Amidst success, the COVID-19 storm struck, testing our mettle. But adversity became our catalyst for innovation, fortifying our spirit.
+            Expanding our horizons, TogetherEd united academia and industry, empowering minds with technology during uncertain times. This resilience led us to Together Threads, where sustainable style flourished, adapting to a changing world.
+            In a stride toward new frontiers, Together Corporation now embraces the United States. Our journey isn&apos;t just about triumphs; it&apos;s about fortitude and the human spirit&apos;s resilience.
+            Join us in this journey of revival and unwavering aspiration. Together, let&apos;s script a future where resilience defines success, and our shared experiences shape a world of endless possibilities.
+          </div>
+        </div>
       </div>
 
       <div>
-        <Footbar/>
+        <Footbar />
       </div>
     </main>
   );

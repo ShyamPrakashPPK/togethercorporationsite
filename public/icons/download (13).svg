@@ -1,8 +1,8 @@
 <svg preserveAspectRatio="xMidYMid meet" data-bbox="20.63 20.63 158.74 158.74" viewBox="20.63 20.63 158.74 158.74" height="200" width="200" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true" aria-label=""><defs><style>#comp-krp13716 svg [data-color="1"] {fill: #FFFFFF;}
 #comp-krp13716 svg [data-color="2"] {fill: #000000;}</style></defs>
     <g>
-        <path fill="#7E55F6" d="M86 56v28H59V56h27z" data-color="1"></path>
-        <path fill="#7E55F6" d="M86 116v28H59v-28h27z" data-color="1"></path>
+        <path fill="#ffff" d="M86 56v28H59V56h27z" data-color="1"></path>
+        <path fill="#ffff" d="M86 116v28H59v-28h27z" data-color="1"></path>
         <path d="M87.598 72.082V55.354H57.835v29.764h29.764V72.082zm-2.48 10.556H60.315V57.835h24.803v24.803zM20.63 20.63v158.74h158.74V20.63H20.63zm156.26 156.26H23.11V23.11h153.78v153.78zm-89.292-45.801v-16.207H57.835v29.764h29.764v-13.557zm-2.48 11.076H60.315v-24.803h24.803v24.803zm31.41-63.091-9.313-8.717 1.696-1.812 7.56 7.078 20.143-20.142 1.754 1.754-21.84 21.839zm1.941 55.549 20.143-20.142 1.754 1.754-21.839 21.84-9.313-8.717 1.696-1.812 7.559 7.077z" fill="#1D1D1B" data-color="2"></path>
     </g>
 </svg>
