@@ -176,11 +176,11 @@ export default function Home() {
           }}
         ></div>
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2  h-full text-white dark:text-white p-10 md:py-40 lg:py-[10%] lg:p-[10vh]">
-          <div className="flex flex-col lg:mt-5">
+          <div ref={handleRef(4)} className="flex flex-col lg:mt-5">
             <h2 className="text-2xl md:text-6xl font-semibold pb-6">Our Story</h2>
             <h4 className="text-2xl">We aim to empower the young to change the world</h4>
           </div>
-          <div className="md:text-lg lg:text-xl">
+          <div ref={handleRef(5)} className="md:text-lg lg:text-xl">
             <div className="h-px my-5 bg-gray-600 border-0 dark:bg-gray-700"></div>
             From India&apos;s vibrant embrace, Together Corporation emerged, weaving a narrative of learning, resilience, and growth.
             Our voyage began in 2009 with Together Tourism, blending education with exploration, sparking curiosity worldwide. Amidst success, the COVID-19 storm struck, testing our mettle. But adversity became our catalyst for innovation, fortifying our spirit.

@@ -1,3 +1,5 @@
+'use client'
+import { useRef, useEffect } from "react";
 import Footbar from '@/components/Footbar/Footer'
 import Navbar from '@/components/Navbar/Navbar'
 import Image from 'next/image'
@@ -20,7 +22,66 @@ import brand9 from '../../../public/images/business/partners/tocket.png'
 import hero2 from "../../../public/images/hero2.jpg";
 
 
-export default function page() {
+export default function About() {
+    const imageRef = useRef<HTMLDivElement | null>(null);
+    const heroRef = useRef<HTMLDivElement | null>(null);
+    const sectionRefs = useRef<(HTMLDivElement | null)[]>([null, null, null, null]); // Initialize with null values
+
+    useEffect(() => {
+        // Handle background scroll effect
+        const handleScroll = () => {
+            if (imageRef.current) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                imageRef.current.style.backgroundPositionX = `${scrollTop * 0.3}px`;
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const handleRef = (index: number): React.RefCallback<HTMLDivElement> => (el) => {
+        if (el) {
+            sectionRefs.current[index] = el;
+        }
+    };
+
+    useEffect(() => {
+        // Add initial load animation to hero section
+        if (heroRef.current) {
+            heroRef.current.classList.add("reveal");
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        sectionRefs.current.forEach((section) => {
+            if (section) {
+                observer.observe(section);
+            }
+        });
+
+        return () => {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            sectionRefs.current.forEach((section) => {
+                if (section) {
+                    observer.unobserve(section);
+                }
+            });
+        };
+    }, []);
     return (
         <section>
             <div>
@@ -29,14 +90,14 @@ export default function page() {
             <div className='grid grid-cols-3 bg-[#191919]'>
                 <div className="col-span-3 lg:col-span-2 p-10">
                     <div className=' grid grid-cols-1 md:grid-cols-2  gap-14'>
-                        <div className='flex flex-col justify-center '>
+                        <div ref={handleRef(1)} className='flex flex-col justify-center '>
                             <div className='text-xl md:text-2xl'>Togethers Tail</div>
                             <div>In a world of learning, let&apos;s endeavour,
                                 Together Corp, our joy, forever!
                                 From explorations that we tether,
                                 To innovations we craft together.</div>
                         </div>
-                        <div className='flex flex-col justify-center '>
+                        <div ref={handleRef(2)} className='flex flex-col justify-center '>
                             <div className='text-xl md:text-2xl'>
                                 Global Symphony</div>
                             <div>Across the world, our reach extends,
@@ -45,27 +106,27 @@ export default function page() {
                                 Our narrative expands, forevermore</div>
                         </div>
                    
-                        <div className='flex flex-col justify-center'>
+                        <div ref={handleRef(3)} className='flex flex-col justify-center'>
                             <div className='text-xl md:text-2xl'>A Spark of Vision</div>
                             <div>From the lands where dreams take flight,
                                 Together&apos;s saga began with a vision bright.
                                 An edu-tourism magic brew,
                                 Learning&apos;s adventure, fresh and new!</div>
                         </div>
-                        <div className='flex flex-col justify-center '>
+                        <div ref={handleRef(4)} className='flex flex-col justify-center '>
                             <div className='text-xl md:text-2xl'>Bridge of Innovation</div>
                             <div>TogetherEd emerged, a bridge so grand,
                                 Uniting academia and industry&apos;s hand.
                                 Innovators nurtured, challenges unfurled,
                                 Minds shaped, as new ideas swirled.</div>
-                        </div><div className='flex flex-col justify-center '>
+                        </div><div ref={handleRef(5)} className='flex flex-col justify-center '>
                             <div className='text-xl md:text-2xl'>Invitation to Unite</div>
                             <div>So come and join, let&apos;s journey together,
                                 Together Corp, a joyous tether!
                                 A story of laughter, now and forever,
                                 At Together Corp, we thrive together!</div>
                         </div>
-                        <div className='flex flex-col justify-center '>
+                        <div ref={handleRef(6)} className='flex flex-col justify-center '>
                             <div className='text-xl md:text-2xl'>Threads of Elegance</div>
                             <div>Threads joined the party, threads so chic,
                                 Sustainable fashion, no room for a tweak.
@@ -75,8 +136,8 @@ export default function page() {
                     </div>
                 </div>
                 <div className='max-lg:hidden flex-grow flex flex-col'>
-                    <div className=''>
-                        <Image src={about1} alt='alt' height={10000} width={10000} />
+                    <div  className=''>
+                        <Image  src={about1} alt='alt' height={10000} width={10000} />
                     </div>
                 </div>
             </div>
@@ -92,7 +153,7 @@ export default function page() {
                     }}
                 ></div>
                 <div className='relative grid grid-cols-1 lg:grid-cols-2 p-10 md:px-20'>
-                    <div className='flex flex-col'>
+                    <div ref={handleRef(7)} className='flex flex-col'>
                         <div className='p-3 md:p-10 text-3xl md:text-5xl lg:text-6xl'>Our Misson Is to Empower</div>
                         <div className='grid grid-cols-2 gap-5 '>
                             <div className='flex flex-col md:p-10'>
@@ -113,7 +174,7 @@ export default function page() {
                             </div>
                         </div>
                     </div>
-                    <div className='flex flex-col justify-start font-light lg:text-lg py-10 md:p-[5%]  '>
+                    <div ref={handleRef(8)} className='flex flex-col justify-start font-light lg:text-lg py-10 md:p-[5%]  '>
                         <div className='py-3'>
                             At Together Corporation, our mission is simple: to empower growth and innovation through unity. We&apos;re committed to fostering an environment where diverse ideas converge, creating a brighter future for all.&quot;
                         </div>
@@ -133,12 +194,15 @@ export default function page() {
 
          
            
-            <div className=' bg-white text-black flex flex-col justify-center items-center py-20'>
-                <h2 className='text-6xl'>Our Core Values</h2>
-                <h4 className='text-3xl'>Leading through action</h4>
+            <div  className=' bg-white text-black flex flex-col justify-center items-center py-20'>
+                <div ref={handleRef(9)} className="text-center" >
+                    <h2 className='text-6xl'>Our Core Values</h2>
+                    <h4 className='text-3xl'>Leading through action</h4>       
+               </div>
+             
                 <div className="grid md:grid-cols-5 pt-10">
                     
-                    <div className='p-5 py-10 border-2 flex flex-col'>
+                    <div ref={handleRef(10)} className='p-5 py-10 border-2 flex flex-col'>
                         <Image
                             className="pr-6 pb-6"
                             src={icon1}
@@ -149,7 +213,7 @@ export default function page() {
                         <h3 className='text-2xl'>Innovation</h3>
                         <h5 className='text-md lg:text-xl'>Sparking creativity, seeking new solutions, and embracing fresh perspectives.</h5>
                     </div>
-                    <div className='p-5 py-10 border-2 flex flex-col'>
+                    <div ref={handleRef(11)} className='p-5 py-10 border-2 flex flex-col'>
                         <Image
                             className="pr-6 pb-6"
                             src={icon2}
@@ -161,7 +225,7 @@ export default function page() {
                             Excellence</h3>
                         <h5 className='text-md lg:text-xl'>Setting high standards, delivering quality in every endeavor undertaken.</h5>
                     </div>
-                    <div className='p-5 py-10 border-2 flex flex-col'>
+                    <div ref={handleRef(12)} className='p-5 py-10 border-2 flex flex-col'>
                         <Image
                             className="pr-6 pb-6"
                             src={icon3}
@@ -172,7 +236,7 @@ export default function page() {
                         <h3 className='text-2xl'>Collaboration</h3>
                         <h5 className='text-md lg:text-xl'>Fostering teamwork, valuing diverse ideas, and working towards shared goals.</h5>
                     </div>
-                    <div className='p-5 py-10 border-2 flex flex-col'>
+                    <div ref={handleRef(13)} className='p-5 py-10 border-2 flex flex-col'>
                         <Image
                             className="pr-6 pb-6"
                             src={icon4}
@@ -187,7 +251,7 @@ export default function page() {
                             
                             Adapting and persisting, facing challenges with determination and  spirit</h5>
                     </div>
-                    <div className='p-5 py-10 border-2 flex flex-col'>
+                    <div ref={handleRef(14)} className='p-5 py-10 border-2 flex flex-col'>
                         <Image
                             className="pr-6 pb-6"
                             src={icon5}
